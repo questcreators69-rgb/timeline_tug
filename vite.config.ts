@@ -1,5 +1,5 @@
 import tailwindcss from '@tailwindcss/vite';
-import react fromm '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
 
