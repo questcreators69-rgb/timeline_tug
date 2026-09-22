@@ -2,6 +2,12 @@
 
 A fast-paced historical timeline guessing game where players test their chronological intuition on scientific breakthroughs, technological milestones, space exploration, and cultural inventions.
 
+## Screenshots
+
+        ![Timeline Tug Gameplay](./assets/image1.png)
+        ![Timeline Tug Start Screen](./assets/image.png)
+
+
 ## About
 
 - **What the project is:** TIMELINE TUG is a browser game centered on chronological comparison.
@@ -43,7 +49,7 @@ npm run dev
 The application will start on `http://localhost:3000`.
 
 - **Frontend Structure:** Built with React 19, TypeScript, and Tailwind CSS. The interface is decomposed into focused, single-responsibility components: `GameCard`, `ActionControls`, `Header`, `StartScreen`, `GameOverModal`, and `ParticleCanvas`.
-- **Game State Management:** A simple, explicit state model (`'MENU' | 'PL AYING' | 'REVEALING' | 'RESULT' | 'GAME-OVER'`) governs game phases without boolean spaghetti.
+- **Game State Management:** A simple state model (`'MENU' | 'PLAYING' | 'REVEALING' | 'RESULT' | 'GAME-OVER'`) governs game phases without boolean spaghetti.
 - **Timeline Dataset:** Curated collection of landmark science, technology, space, and invention breakthroughs with canonical dates, category-driven icons, and meaningful representation of women in STEM.
 - **Card Comparison Logic:** Encapsulated in `src/game/gameLogic.ts`. It compares `challenger.year` to `anchor.year`, checks for equality (same-year win), and computes the absolute year difference.
 - **Scoring & Persistence:** Current streak updates reactively; new best scores persist across browser refreshes using `localStorage` under key `timeline-tug-best-streak`.
