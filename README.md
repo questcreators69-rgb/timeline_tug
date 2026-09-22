@@ -4,9 +4,7 @@ A fast-paced historical timeline guessing game where players test their chronolo
 
 ## Screenshots
 
-        ![Timeline Tug Gameplay](./assets/image1.png)
-        ![Timeline Tug Start Screen](./assets/image.png)
-
+![Timeline Tug Gameplay](./assets/image1.png) ![Timeline Tug Start Screen](./assets/image.png)
 
 ## About
 
