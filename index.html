@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang=""en">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,14 +7,20 @@
     <meta name="description" content="A fast-paced historical timeline guessing game. Compare inventions, scientific breakthroughs, and cultural milestones earlier or later." />
     <meta property="og:title" content="Timeline Tug" />
     <meta property="og:description" content="A fast-paced historical timeline guessing game. Compare inventions, scientific breakthroughs, and cultural milestones earlier or later." />
-    <meta property=""og:type" content="website" />
+    <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary-large-image" />
-    <link rel=""preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2/family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2/family=Cinzel:wght@700;900&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-amber-500/30 selection:text-amber-200">
+  <body class="bg-[#0A0A0D] text-[#F3EFE6] antialiased selection:bg-[#D4A359]/30 selection:text-[#F3EFE6]">
+    <svg class="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.035] mix-blend-overlaay">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+    </svg>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
-</html>"
+</html>
