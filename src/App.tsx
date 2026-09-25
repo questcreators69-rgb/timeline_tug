@@ -226,7 +226,7 @@ export default function App() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-zinc-950 text-zinc-100 antialiased selection:bg-amber-500/30">
+    <div className="flex min-h-screen flex-col bg-[#121021] text-[#F3EFE6] antialiased selection:bg-[#FCD34D]/30">
       
       <ParticleCanvas active={showConfetti} />
 
@@ -239,7 +239,7 @@ export default function App() {
         onLogoClick={() => setPhase('MENU')}
       />
     
-      <main className="flex-1 flex flex-col items-center justify-center p-4 sm:p-6 w-full max-w-5xl mx-auto">
+      <main className="flex-1 flex flex-col items-center justify-between w-full relative overflow-hidden">
         {phase === 'MENU' && (
           <StartScreen onStartGame={startNewGame} bestStreak={bestStreak} />
         )}
@@ -247,30 +247,50 @@ export default function App() {
         {(phase === 'PLAYING' || phase === 'REVEALING' || phase === 'RESULT') &&
           anchor &&
           challenger && (
-            <div className="w-full flex flex-col items-center animate-fadeIn">
-
-              <div className="w-full flex flex-col md:flex-row items-center justify-center gap-3 md:gap-5 lg:gap-8 my-2 sm:my-3">
+        <div className="relative w-full flex-1 flex flex-col justify-between items-center bg-[#18162E]">
+  <div className="absolute inset-0 pointer-events-none opacity-40">
+    <svg className="w-full h-full">
+      <defs>
+        <pattern id="dungeon-bricks" width="64" height="32" patternUnits="userSpaceOnUse">
+          <rect width="64"height="32" fill="#18162E" />
+          <rect x="0" y="1" width="62" height="13" fill="#221E40" rx="1" />
+          <rect x="32" y="17" width="62" height="13" fill="#221E40" rx="1" />
+          <rect x="0" y="17" width="30" height="13" fill="#221E40" rx="1" />
+          <line x1="0" y1="15" x2="64" y2="15" stroke="#100E22" strokeWidth="2" />
+          <line x1="0" y1="31" x2="64" y2="31" stroke="#100E22" strokeWidth="2" />
+          <line x1="63" y1="0" x2="63" y2="15" stroke="#100E22" strokeWidth="2" />
+          <line x1="31" y1="16" x2="31" y2="31" stroke="#100E22" strokeWidth="2" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#dungeon-bricks)" />
+    </svg>  </div>
+  <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center pt-3 sm:pt-6 px-3 sm:px-6">
+    <div className="w-full flex flex-col md:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 my-1 sm:my-3">
+        
 
                 <div className="w-full md:w-auto flex justify-center">
-                  <GameCard                    event={anchor}
+                  <GameCard
+                    event={anchor}
                     role="anchor"
                     isRevealed={true}
                   />
                 </div>
                 <div className="flex md:hidden relative my-1 items-center justify-center w-full max-w-xs">
-                  <div className="h-px flex-1 bg-zinc-800/80" />
-                  <span className="mx-3 rounded-full border border-zinc-800 bg-zinc-900 px-3 py-0.5 font-display text-xs font-bold text-zinc-400 uppercase tracking-widest shadow-sm">
-                    VS                 
-                  </span>                  
-                  <div className="h-px flex-1 bg-zinc-800/80" />
-                </div>
-                <div className="hidden md:flex flex-col items-center justify-center shrink-0 self-center px-1 lg:px-2">
-                  <div className="w-px h-16 lg:h-20 bg-zinc-800/80" />
-                  <span className="my-2.5 rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1 font-display text-xs font-bold text-zinc-400 uppercase tracking-widest shadow-sm">
-                    VS                 
-                 </span>
-                  <div className="w-px h-16 lg:h-20 bg-zinc-800/80" />
-                </div>
+  <div className="h-0.5 flex-1 bg-[#3D355F]" />
+  <span className="mx-2.5 border-2 border-[#3D355F] bg-[#1C1833] px-2.5 py-1 font-pixel text-xs text-white uppercase shadow-pixel">
+    VS
+ </span>
+  <div className="h-0.5 flex-1 bg-[#3D355F]" />
+</div>
+
+<div className="hidden md:flex flex-col items-center justify-center shrink-0 self-center px-1">
+  <div className="w-0.5 h-20 lg:h-28 bg-[#3D355F]" />
+  <span className="my-2.5 border-2 border-[#3D355F] bg-[#1C1833] px-2.5 py-1.5 font-pixel text-xs text-white uppercase shadow-pixel">
+    VS
+  </span>
+  <div className="w-0.5 h-20 lg:h-28 bg-[#3D355F]" />
+</div>
+                
                 <div                  
                     className={`w-full md:w-auto flex justify-center touch-none ${
                     phase === 'PLAYING' ? 'cursor-grab active:cursor-grabbing' : 'cursor-default'
@@ -290,23 +310,62 @@ export default function App() {
                   />
                 </div>              
               </div>
-              {showFirstTimeHint && phase === 'PLAYING' && streak === 0 && (
-                <div className="mt-2 flex items-center gap-1.5 text-xs text-zinc-400 animate-pulse">
-                  <span>← Drag left for Earlier</span>
-                  <span className="text-zinc-600">•</span>
-                  <span>Drag right for Later →</span>
-                </div>
-              )}
+                
+              <ActionControls      onGuess={commitGuess}
+      disabled={phase !== 'PLAYING'}
+    />
+  </div>
+  <div className="relative z-10 w-full mt-4 sm:mt-6">
+    <svg      className="w-full h-10 sm:h-12 pixelated block"
+      viewBox="0 0 800 48"
+      preserveAspectRatio="none"
+    >
+      <g fill="#48BB78">
+        <polygon points="100,10 102,2 105,10" />
+        <polygon points="104,10 108,0 111,10" />
+        <polygon points="110,10 114,4 116,10" />
 
-              <ActionControls
-                onGuess={commitGuess}
-                disabled={phase !== 'PLAYING'}
-              />
+        <polygon points="260,10 262,2 265,10" />
+        <polygon points="264,10 268,0 271,10" />
+        <polygon points="270,10 274,4 276,10" />
 
-              <div className="mt-4 text-[11px] text-zinc-400 hidden sm:block">
-                Use <kbd className="font-mono bg-zinc-900 px-1 py-0.5 rounded border border-zinc-800 text-zinc-400">←</kbd> / <kbd className="font-mono bg-zinc-900 px-1 py-0.5 rounded border border-zinc-800 text-zinc-400">→</kbd> arrow keys to make your guess
-              </div>            
-              </div>          
+        <polygon points="520,10 522,2 525,10" />
+        <polygon points="524,10 528,0 531,10" />
+        <polygon points="530,10 534,4 536,10" />
+
+        <polygon points="740,10 742,2 745,10" />
+        <polygon points="744,10 748,0 751,10" />
+        <polygon points="750,10 754,4 756,10" />
+      </g>
+      <rect x="0" y="10" width="800" height="18" fill="#3B345C" />
+      <rect x="0" y="28" width="800" height="20" fill="#292342" />
+
+      <line x1="0" y1="10" x2="800" y2="10" stroke="#1D1933" strokeWidth="2" />
+      <line x1="0" y1="28" x2="800" y2="28" stroke="#1D1933" strokeWidth="2" />
+
+      <line x1="60" y1="10" x2="60" y2="28" stroke="#1D1933" strokeWidth="2" />
+      <line x1="140" y1="10" x2="140" y2="28" stroke="#1D1933" strokeWidth="2" />
+      <line x1="220" y1="10" x2="220" y2="28" stroke="#1D1933" strokeWidth="2" />
+      <line x1="300" y1="10" x2="300" y2="28" stroke="#1D1933" strokeWidth="2" />
+      <line x1="380" y1="10" x2="380" y2="28" stroke="#1D1933" strokeWidth="2" />
+      <line x1="460" y1="10" x2="460" y2="28" stroke="#1D1933" strokeWidth="2" />
+      <line x1="540" y1="10" x2="540" y2="28" stroke="#1D1933" strokeWidth="2" />
+      <line x1="620" y1="10" x2="620" y2="28" stroke="#1D1933" strokeWidth="2" />
+      <line x1="700" y1="10" x2="700" y2="28" stroke="#1D1933" strokeWidth="2" />
+      <line x1="780" y1="10" x2="780" y2="28" stroke="#1D1933" strokeWidth="2" />
+
+      <line x1="100" y1="28" x2="100" y2="48" stroke="#1D1933" strokeWidth="2" />
+      <line x1="180" y1="28" x2="180" y2="48" stroke="#1D1933" strokeWidth="2" />
+      <line x1="260" y1="28" x2="260" y2="48" stroke="#1D1933" strokeWidth="2" />
+      <line x1="340" y1="28" x2="340" y2="48" stroke="#1D1933" strokeWidth="2" />
+      <line x1="420" y1="28" x2="420" y2="48" stroke="#1D1933" strokeWidth="2" />
+      <line x1="500" y1="28" x2="500" y2="48" stroke="#1D1933" strokeWidth="2" />
+      <line x1="580" y1="28" x2="580" y2="48" stroke="#1D1933" strokeWidth="2" />
+      <line x1="660" y1="28" x2="660" y2="48" stroke="#1D1933" strokeWidth="2" />
+      <line x1="740" y1="28" x2="740" y2="48" stroke="#1D1933" strokeWidth="2" />
+      </svg>
+  </div>
+</div>          
                 )}
 
         {phase === 'GAME-OVER' && anchor && challenger && roundResult && (
