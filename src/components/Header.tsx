@@ -16,43 +16,44 @@ export function Header({
   onLogoClick,
 }: HeaderProps) {
   return (
-    <header className="w-full border-b border-[#D4A359]/20 bg-[#0A0A0D]/90 backdrop-blur-md px-4 sm:px-8 py-3.5 sticky top-0 z-40">
-      <div className="mx-auto flex max-w-6xl items-center justify-between">
-        <button          onClick={onLogoClick}
-          className="group flex items-center gap-3 text-left focus:outline-none"
-        >
-          <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-[#D4A359] text-[#0A0A0D] font-syne font-black text-xl shadow-brass group-hover:scale-105 transition-transform duration-200 ease-spring">
-            T          </div>          <div className="flex flex-col">
-            <h1 className="font-syne text-base sm:text-lg font-extrabold tracking-wider text-[#F3EFE6] uppercase group-hover:text-[#D4A359] transition-colors duration-200">
-              TIMELINE TUG
-            </h1>
-            <span className="text-[10px] uppercase font-mono tracking-widest text-[#D4A359]/60 hidden xs:block">
-              CHRONO-INTUITION ARENA
-           </span>          </div>        </button>
-        <div className="flex items-center gap-2.5 sm:gap-4">
-          <div
-            className={`flex items-center gap-2 rounded-sm px-3 py-1 text-xs sm:text-sm font-bold border transition-all duration-200 ${
-              streak > 0
-                ? 'border-[#D4A359] bg-[#D4A359]/10 text-[#D4A359] shadow-brass'
-                : 'border-stone-800 bg-stone-900/60 text-stone-400'
-          }`}
-          >
-            <Flame
-              className={`h-4 w-4 ${
-                streak > 0 ? 'fill-[#D4A359] text-[#D4A359] animate-pulse' : 'text-stone-600'
-            }`}
-        />
-            <span className="font-mono text-sm">{streak}</span>          </div>
-          <div className="flex items-center gap-2 rounded-sm border border-stone-800 bg-stone-900/60 px-3 py-1 text-xs sm:text-sm font-semibold text-stone-300">
-            <Trophy className="h-4 w-4 text-[#D4A359]" />
-            <span className="hidden xs:inline text-stone-500 text-xs font-normal uppercase tracking-wider">Best:</span>            <span className="font-mono font-bold text-[#D4A359]">{bestStreak}</span>          </div>
-          <button
-            onClick={onToggleMute}
-            className="flex h-9 w-9 items-center justify-center rounded-sm border border-stone-800 bg-stone-900/80 text-stone-400 hover:text-[#F3EFE6] hover:border-[#D4A359]/50 transition-colors focus:outline-none"
-            aria-label={isMuted ? 'Unmute game audio' : 'Mute game audio'}
-          >
-            {isMuted ? <VolumeX className="h-4 w-4 text-stone-600" /> : <Volume2 className="h-4 w-4 text-[#D4A359]" />}
-          </button>
+    <header className="w-full border-b border-[#25203D] bg-[#121021] px-3 sm:px-6 py-2.5 sticky top-0 z-40 select-none">
+  <div className="mx-auto flex max-w-5xl items-center justify-between">
+          
+<button
+  onClick={onLogoClick}
+  className="group flex items-center gap-3 text-left focus:outline-none cursor-pointer"
+>
+  <div className="relative flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center bg-[#E2BA7D] border-2 border-[#1E140A] shadow-pixel group-hover:scale-105 transition-transform">
+    <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-[#4A2F13] rounded-full" />
+    <div className="absolute top-0.5 right-0.5 w-1 h-1 bg-[#4A2F13] rounded-full" />
+    <div className="absolute bottom-0.5 left-0.5 w-1 h-1 bg-[#4A2F13] rounded-full" />
+    <div className="absolute bottom-0.5 right-0.5 w-1 h-1 bg-[#4A2F13] rounded-full" />
+    <span className="font-pixel text-base sm:text-lg font-black text-[#1A1207] leading-none">
+      T
+   </span>
+  </div>
+  <h1 className="font-pixel text-xs sm:text-sm tracking-wider text-white group-hover:text-[#FCD34D] transition-colors">
+    TIMELINE TUG
+  </h1></button>
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 border-2 border-[#2C2649] bg-[#151326] px-2.5 py-1 shadow-pixel">
+    <Flame className="h-3.5 w-3.5 fill-[#EF4444] text-[#F97316]" />
+    <span className="font-pixel text-[11px] sm:text-xs text-white">{streak}</span>
+  </div>
+  <div className="flex items-center gap-1.5 sm:gap-2 border-2 border-[#2C2649] bg-[#151326] px-2.5 py-1 shadow-pixel">
+    <Trophy className="h-3.5 w-3.5 fill-[#FBBF24] text-[#FBBF24]" />
+    <span className="font-pixel text-[11px] sm:text-xs text-white">{bestStreak}</span>  </div>
+          <button  
+onClick={onToggleMute}
+  className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center border-2 border-[#2C2649] bg-[#151326] hover:bg-[#201D38] active:translate-y-0.5 text-[#FBBF24] shadow-pixel transition-all focus:outline-none cursor-pointer"
+  aria-label={isMuted ? 'Unmute game audio' : 'Mute game audio'}
+>
+  {isMuted ? (
+    <VolumeX className="h-3.5 w-3.5 text-[#6B7280]" />
+    ) : (
+    <Volume2 className="h-3.5 w-3.5 text-[#FBBF24]" />
+  )}
+</button>
         </div>
       </div>
     </header>
