@@ -229,16 +229,24 @@ export function StartScreen({ onStartGame, bestStreak }: StartScreenProps) {
       </div>
 
       <div className="relative z-10 w-full max-w-xl mx-auto flex flex-col items-center pt-6 sm:pt-10 px-4">
-        <div className="flex flex-col items-center mb-6 select-none">
-          <div className="flex flex-col items-center mb-6 select-none">
+         <div className="flex flex-col items-center mb-6 select-none">
   <h1 className="font-pixel text-4xl sm:text-6xl md:text-7xl font-extrabold text-[#F5F2EB] tracking-wide uppercase drop-shadow-[4px-4px-0px-#14141E]">
     TIMELINE  </h1>
   <h2 className="font-pixel text-4xl sm:text-6xl md:text-7xl font-extrabold text-[#FFC72C] tracking-wide uppercase -mt-1 sm:-mt-2 drop-shadow-[4px-4px-0px-#14141E]">
-    TUG  </h2>
+    TUG
+  </h2>
   </div>
+
+<div className="w-full max-w-lg mb-3 relative bg-[#8C5A31] border-2 sm:border-3 border-[#3D2314] shadow-pixel p-3 sm:p-4 text-center">
+          <div className="absolute top-1 left-1 w-1.5 h-1.5 bg-[#26150B] rounded-full border border-[#B87E4B]" />
+          <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-[#26150B] rounded-full border border-[#B87E4B]" />
+          <div className="absolute bottom-1 left-1 w-1.5 h-1.5 bg-[#26150B] rounded-full border border-[#B87E4B]" />
+          <div className="absolute bottom-1 right-1 w-1.5 h-1.5 bg-[#26150B] rounded-full border border-[#B87E4B]" />
      
   <p className="font-silkscreen text-xs sm:text-sm font-bold text-[#241308] leading-relaxed">
-            Can you place historical breakthroughs in their exact chronological order ?        </p>        </div>
+            Can you place historical breakthroughs in their exact chronological order ?
+        </p>
+        </div>
         <div className="w-full max-w-lg mb-6 relative bg-[#3D2E24] border-2 sm:border-3 border-[#1F1610] shadow-pixel p-3 sm:p-4 text-center">
           <div className="absolute top-1 left-1 w-1.5 h-1.5 bg-[#170E08] rounded-full border border-[#5C4537]" />
           <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-[#170E08] rounded-full border border-[#5C4537]" />
