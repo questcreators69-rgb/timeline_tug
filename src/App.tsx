@@ -16,6 +16,7 @@ import { GameCard } from './components/GameCard';
 import { ActionControls } from './components/ActionControls';
 import { GameOverModal } from './components/GameOverModal';
 import { ParticleCanvas } from './components/ParticleCanvas';
+import { clear } from 'console';
 
 export default function App() {
 
@@ -44,6 +45,17 @@ export default function App() {
       activeTimerRef.current = null;
     }
   }, []);
+
+  const handleReturnToMenu = useCallback(() => {
+    clearActiveTimer();
+    setShowConfetti(false);
+    setRoundResult(null);
+    setIsBusted(false);
+    setDragOffset(0);
+    setIsDragging(false);
+    setPhase('MENU');
+  }, [clearActiveTimer]);
+  
 
   const startNewGame = useCallback(() => {
     clearActiveTimer();
@@ -236,7 +248,7 @@ export default function App() {
         bestStreak={bestStreak}
         isMuted={isMuted}
         onToggleMute={handleToggleMute}
-        onLogoClick={() => setPhase('MENU')}
+        onLogoClick={handleReturnToMenu}
       />
     
       <main className="flex-1 flex flex-col items-center justify-between w-full relative overflow-hidden">
