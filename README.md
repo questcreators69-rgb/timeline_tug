@@ -1,40 +1,50 @@
+# Timeline Tug
+
+A historical trivia browser game where you place historical events in chronological order.
+
 ## Description
 
-A fast-paced historical timeline guessing game where players test their chronological intuition on scientific breakthroughs, technological milestones, space exploration, and cultural inventions.
+Timeline Tug is an trivia game where you guess if a mystery historical event happened earlier or later than a given anchor event. It features custom pixel graphics, synthesized chiptune sound effects, drag-and-drop card physics, and high score streak tracking.
 
 ## Screenshots
 
 ![Timeline Tug Gameplay](./assets/image1.png) ![Timeline Tug Start Screen](./assets/image.png)
 
-## Features
+## Getting Started
 
-- **Drag to guess, That's it**
-  **If in Laptop then use <-- or --> arrow**
+### Dependencies
 
-### Requirements
+* Node.js (v18 or higher)
+* npm
 
-- Node.js 20 or later.
-- npm (or pnpm / bun).
+### Installing
 
-### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/questcreators69-rgb/timeline-tug.git
+   cd timeline-tug
+   ```
 
-git clone https://github.com/questcreators69-rgb/timeline_tug.git
-cd timeline_tug
-npm install
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### To run the game
+### Executing program
 
-npm run dev
+* Run the dev server:
+  ```bash
+  npm run dev
+  ```
+* Open `http://localhost:3000` in your browser.
 
-The application will start on `http://localhost:3000`.
+## Help
 
-## Tech stack
-
-- **React**
-- **TypeScript**
-- **Tailwind CSS**
-- **Lucide Icons**
+If port 3000 is occupied, you can specify an alternate port:
+```bash
+npm run dev -- --port 3000
+```
 
 ## License
 
-MIT License
+This project is licensed under the MIT License.
